@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import columns from './columns.js'
+import getRooms from './rooms'
 
 export default combineReducers({
-    columns
+    getRooms
 })
