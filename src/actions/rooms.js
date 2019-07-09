@@ -1,14 +1,15 @@
-export const EVENT = 'EVENT'
+export const ROOMS = 'ROOMS'
 
 export function onEvent (event) {
-    console.log('event', event);
+    // console.log('event', event);
     
     const { data } = event
     const rooms = JSON.parse(data)
-    console.log('columns test', rooms);
+    // console.log('rooms', rooms);
+    // console.log('data', data);
 
     return {
-        type: EVENT,
+        type: ROOMS,
         payload: rooms
     }
 }

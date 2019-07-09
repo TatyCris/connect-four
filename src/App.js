@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './App.css';
-import RoomContainer from './components/roomContainer';
+import RoomContainer from './components/RoomContainer';
+import GameContainer from './components/GameContainer';
 
 export default class App extends Component {
   render() {
@@ -8,6 +9,7 @@ export default class App extends Component {
       <div className="App">
         <header className="App-header">
         <RoomContainer />
+        <GameContainer />
         </header>
       </div>
     )
