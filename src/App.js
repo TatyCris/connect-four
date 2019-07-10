@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Route } from 'react-router-dom'
+import { onEvent } from './actions/rooms'
+import LoginContainer from './components/LoginContainer'
 import RoomsContainer from './components/RoomsContainer'
 import ColumnsContainer from './components/ColumnsContainer'
-import { onEvent } from './actions/rooms'
 import './App.css';
 
 
@@ -22,8 +24,9 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          {/* <RoomsContainer /> */}
-          <ColumnsContainer />
+          <Route exact path="/" component={LoginContainer} />
+          <Route path="/rooms" component={RoomsContainer} />
+          <Route path="/rooms/:id/columns" component={ColumnsContainer} />
         </header>
       </div>
     )
