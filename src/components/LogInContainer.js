@@ -17,7 +17,7 @@ class LoginContainer extends Component {
     onChange = (event) => {
         const { value } = event.target
         const key = event.target.name
-        
+
         this.setState({ [key]: value })
     }
 
@@ -30,21 +30,19 @@ class LoginContainer extends Component {
 
         request
             .post(`${this.url}/users`)
-            .send({ userName, password  })
+            .send({ userName, password })
             .then(res => {
                 console.log(res)
-                return <Redirect to={'/rooms'} />
+                this.props.getUser(userName)
+                this.props.history.push(`/rooms`)
+
             })
             .catch(error => console.log(error))
-
-        this.props.getUser(userName)
-        
-        // {<Link to={`/rooms`}><button>Get in</button></Link>}
-        
-
     }
 
     render() {
+        console.log('props', this.props.user);
+
         return (
             <div className="Login">
                 <form onSubmit={this.onSubmit}>
@@ -58,7 +56,6 @@ class LoginContainer extends Component {
                     <input onChange={this.onChange} value={this.state.password} name="password"></input>
                     <br />
                     <button>Get in</button>
-                    
                 </form>
             </div>
         )
@@ -67,7 +64,7 @@ class LoginContainer extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        users: state.users
+        user: state.currentUser
     }
 }
 

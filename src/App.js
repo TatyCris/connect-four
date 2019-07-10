@@ -40,10 +40,10 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    currentUser: state.users
-  }
-}
+// const mapStateToProps = (state) => {
+//   return {
+//     currentUser: state.users
+//   }
+// }
 
 export default connect(null, { onEvent })(App)
