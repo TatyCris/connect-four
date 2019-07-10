@@ -10,7 +10,7 @@ export default class App extends Component {
       <div className="App">
         <header className="App-header">
         <Route path="/rooms" component={RoomsContainer} /> 
-        <Route path="/rooms/:id/columns/:id" component={ColumnsContainer} />
+        <Route path="/rooms/:id/columns" component={ColumnsContainer} />
         </header>
       </div>
     )

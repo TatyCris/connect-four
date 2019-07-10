@@ -12,7 +12,7 @@ class ColumnsContainer extends Component {
                 .map((column, index) => {
                     const rows = column
                         .rows
-                        .map(row => <div>{row}</div>)
+                        .map(row => <div key={index}>{row}</div>)
 
                     return <div key={index}>
                         {rows}

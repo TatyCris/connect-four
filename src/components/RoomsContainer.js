@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { onEvent } from '../actions/rooms'
 import { connect } from 'react-redux'
+import {Link} from 'react-router-dom'
 
 class RoomsContainer extends Component {
     // baseUrl = 'https://secure-ravine-16222.herokuapp.com'
@@ -16,7 +17,7 @@ class RoomsContainer extends Component {
 
     render() {
         const rooms = this.props.rooms
-            .map((room, index) => <div key={index}>{room.name} ({room.id})</div>)
+            .map((room, index) => <Link key={room.name} to={`/rooms/${room.id}/columns`}><div key={index}>{room.name} ({room.id})</div></Link>)
 
         return (
             <div>
