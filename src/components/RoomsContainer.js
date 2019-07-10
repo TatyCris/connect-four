@@ -3,16 +3,7 @@ import { onEvent } from '../actions/rooms'
 import { connect } from 'react-redux'
 
 class RoomsContainer extends Component {
-    // baseUrl = 'https://secure-ravine-16222.herokuapp.com'
-    baseUrl = 'http://localhost:5000'
-
-    url = `${this.baseUrl}/rooms`
-
-    source = new EventSource(`${this.url}/stream`)
-
-    componentDidMount() {
-        this.source.onmessage = this.props.onEvent
-    }
+   
 
     render() {
         const rooms = this.props.rooms
