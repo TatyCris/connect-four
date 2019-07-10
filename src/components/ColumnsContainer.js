@@ -29,12 +29,11 @@ class ColumnsContainer extends Component {
                         .rows
                         .map(row => <div>{row}</div>)
                         if(rows.length < 6){
-                            const missing = 6 - rows.length
+                            let missing = 6 - rows.length
 
                             for(missing; missing< rows.length; missing++){
                                 rows.push('e')
                             }
-                            return column.id
                         }
                     return <div key={index}>
                         {rows}
