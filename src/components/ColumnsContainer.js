@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { onEvent } from '../actions/game'
 import { connect } from 'react-redux'
+import { onEvent } from '../actions/game'
 import './columns.css'
 
 class ColumnsContainer extends Component {
@@ -23,8 +23,6 @@ class ColumnsContainer extends Component {
 
             return (
                 <div className='columns'>
-                    Columns:
-
                     {columns}
                 </div>
             )
