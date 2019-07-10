@@ -15,6 +15,7 @@ class ColumnsContainer extends Component {
             .put(`${this.url}/columns`)
             .then(res => {
                 console.log('res?', res)
+                return res.body.rows[0]
             })
     }
     
@@ -28,13 +29,7 @@ class ColumnsContainer extends Component {
                     const rows = column
                         .rows
                         .map(row => <div>{row}</div>)
-                        if(rows.length < 6){
-                            let missing = 6 - rows.length
-
-                            for(missing; missing< rows.length; missing++){
-                                rows.push('e')
-                            }
-                        }
+                        
                     return <div key={index}>
                         {rows}
 
