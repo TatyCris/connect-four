@@ -24,12 +24,25 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
+
+          {/* {
+            // If user logged in, -> render the other components
+            // Otherwise render the login screen
+            this.props.currentUser === null && 
+          } */}
+
           <Route exact path="/" component={LoginContainer} />
           <Route path="/rooms" component={RoomsContainer} />
           <Route path="/rooms/:id/columns" component={ColumnsContainer} />
         </header>
       </div>
     )
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    currentUser: state.users
   }
 }
 
