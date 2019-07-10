@@ -1,4 +1,5 @@
 import { ROOMS } from '../actions/rooms'
+
 const initialState = []
 
 export default function rooms (state = initialState, { type, payload }) {

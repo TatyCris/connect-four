@@ -8,7 +8,7 @@ class RoomsContainer extends Component {
 
     render() {
         const rooms = this.props.rooms
-            .map((room, index) => <Link key={room.id} to={`/rooms/${room.id}`} > <div key={index}>{room.name} ({room.id})</div> </Link>)
+            .map((room, index) => <Link key={room.id} to={`/rooms/${room.id}/columns`} > <div key={index}>{room.name} ({room.id})</div> </Link>)
 
         return (
             <div>

@@ -5,8 +5,24 @@ import './columns.css'
 
 class ColumnsContainer extends Component {
     render() {
+    //     const columns = this.props.rooms[0]
+
+    //     columns.map(col =>{
+    //         const rows = col.rows.map(row =>
+    //             <div>{rows}</div>)
+    //     })
+    //     if(col.rows.length > 6) {
+    //         const missing = 2 - col.rows.length
+
+    //         for (missing = 0; missing < array.length; missing++) {
+    //             rows.push(col)
+                
+    //         }
+    //     }
+
         if (this.props.rooms.length) {
             const room = this.props.rooms[0] //find
+            
             const columns = room
                 .columns
                 .map((column, index) => {
@@ -16,7 +32,7 @@ class ColumnsContainer extends Component {
 
                     return <div key={index}>
                         {rows}
-                        
+
                         {column.id}
                     </div>
                 })
@@ -26,7 +42,7 @@ class ColumnsContainer extends Component {
                     {columns}
                 </div>
             )
-        } else {
+        }else {
             return 'Loading...'
         }
     }
