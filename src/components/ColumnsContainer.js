@@ -11,35 +11,15 @@ class ColumnsContainer extends Component {
 
     onClick = () => {
         console.log('DOESTHISCLICKS?!')
-        
         request
             .put(`${this.url}/columns`)
             .then(res => {
                 console.log('res?', res)
-                if(!column){
-                    res.status(404).send(column)
-                } else {
-                    column.map(col =>{
-                        const rows = col.rows.map(row=>{
-                            {<div>{row}</div>}
-                        })
-            
-                        if(col.rows.length > 6){
-                            const missing = 6 - col.rows.length
-            
-                            for (missing; missing < rows; missing++) {
-                                rows.push(col)
-                            }
-                        }
-                    })
-                }
             })
     }
-
-
-
+    
     render() {
-        console.log('whatsthis?',this.props.columns[0])
+        console.log(this.props.row)
         if (this.props.rooms.length) {
             const room = this.props.rooms[0] //find
             const columns = room
@@ -48,7 +28,14 @@ class ColumnsContainer extends Component {
                     const rows = column
                         .rows
                         .map(row => <div>{row}</div>)
+                        if(rows.length < 6){
+                            const missing = 6 - rows.length
 
+                            for(missing; missing< rows.length; missing++){
+                                rows.push('e')
+                            }
+                            return column.id
+                        }
                     return <div key={index}>
                         {rows}
 
@@ -70,7 +57,7 @@ class ColumnsContainer extends Component {
 const mapStateToProps = (state) => {
     return {
         rooms: state.rooms,
-        columns: state.rooms
+        row: state.rooms
     }
 }
 
