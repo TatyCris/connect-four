@@ -1,7 +1,7 @@
 import { ROOMS } from '../actions/rooms'
 const initialState = []
 
-export default function getRooms (state = initialState, { type, payload }) {
+export default function rooms (state = initialState, { type, payload }) {
     switch (type) {
         case ROOMS:
             return payload

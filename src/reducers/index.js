@@ -1,8 +1,6 @@
 import { combineReducers } from 'redux'
-import getRooms from './rooms'
-import getGame from './game'
+import rooms from './rooms'
 
 export default combineReducers({
-    getRooms,
-    getGame
+    rooms
 })

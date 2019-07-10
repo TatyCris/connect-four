@@ -1,0 +1,7 @@
+.columns > div {
+    display: inline-block;
+}
+
+.columns > div > div {
+    border: 1px solid white;
+}
