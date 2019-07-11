@@ -11,8 +11,11 @@ class ColumnsContainer extends Component {
     onClick = (column) => {
         console.log('column test:', column)
         request
+       
             .put(`${this.url}/rooms/1/columns`)
-            .then(res => { return console.log('whats thiz?',res)})
+            .send({player: 'i', index: column})
+            .end(err => err)
+        
     }
 
     render() {
@@ -29,7 +32,7 @@ class ColumnsContainer extends Component {
                             {row}
                         </div>)
 
-                    return <div key={index} onClick={this.onClick}>
+                    return <div key={index}>
                         {rows}
 
                         {column.id}
