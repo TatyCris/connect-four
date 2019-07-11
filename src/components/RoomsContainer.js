@@ -12,7 +12,7 @@ class RoomsContainer extends Component {
 
     onSubmit = (event) => {
         event.preventDefault()
-        console.log('hoi!!')
+        console.log('hoi!!', event)
         request
             .post('http://localhost:5000/rooms')
             .send({ name: event.target.value })
@@ -43,7 +43,7 @@ class RoomsContainer extends Component {
                 <br></br>
                 <form onSubmit={this.onSubmit}>
                     <label>Create Game: </label>
-                    <input onChange={this.onChange} value={this.state.value} name="game"></input>
+                    <input onChange={this.onChange} value={this.state.value} name={this.state.value}></input>
                     <button>Add</button>
                 </form>
                 {rooms}
