@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { onEvent } from '../actions/rooms'
 import { connect } from 'react-redux'
+import {Link} from 'react-router-dom'
 import './rooms.css'
 
 class RoomsContainer extends Component {
@@ -8,11 +9,11 @@ class RoomsContainer extends Component {
 
     render() {
         const rooms = this.props.rooms
-            .map((room, index) => <div
+            .map((room, index) => <Link to={`/rooms/${index + 1}/columns`}><div
                 key={index}
                 className="roomContainer"
                 // style={{backgroundImage: `url("https://source.unsplash.com/collection/181581/480x160")`}}
-            >{room.name} ({room.id})</div>)
+            >{room.name}</div> </Link>)
 
         return (
             <div>

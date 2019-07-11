@@ -41,16 +41,15 @@ class LoginContainer extends Component {
                         console.log(res)
                         this.props.getUser(userName)
                         this.props.history.push(`/rooms`)
-
                     })
                     .catch(error => console.log(error))
-            }
-        } else {
+            } 
+        } else  {
             request
                 .get(`${this.url}/login`, { userName }, { password })
-                // .send({ userName, password })
+                .send({ userName, password })
                 .then(res => {
-                    console.log(res)
+                    console.log('??',res)
                     this.props.getUser(userName)
                     this.props.history.push(`/rooms`)
                 })
