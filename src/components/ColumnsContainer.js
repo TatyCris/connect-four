@@ -18,6 +18,8 @@ class ColumnsContainer extends Component {
     }
 
     render() {
+        console.log('ColumnsProps', this.props.history);
+
         if (this.props.rooms.length) {
             const room = this.props.rooms[0] //find
             const columns = room
