@@ -25,8 +25,8 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <Route exact path="/" component={LoginContainer} />
-          <Route path="/rooms" component={RoomsContainer} />
-          <Route path="/rooms/:id/columns" component={ColumnsContainer} />
+          <Route exact path="/rooms" component={RoomsContainer} />
+          <Route exact path="/rooms/:id/columns" component={ColumnsContainer} />
         </header>
       </div>
     )
