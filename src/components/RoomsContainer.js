@@ -4,10 +4,18 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import * as request from 'superagent'
 import './rooms.css'
-
+               
 class RoomsContainer extends Component {
     state = {
         value: ''
+    }
+
+    renderRooms = (room) => {
+        return (
+            <div key={room.name} className="roomContainer">
+                <Link to={`/rooms/${room.id}/columns`}>{room.name} ({room.id})</Link>
+            </div>
+        )
     }
 
     onSubmit = (event) => {
@@ -47,6 +55,7 @@ class RoomsContainer extends Component {
                     <button>Add</button>
                 </form>
                 {rooms}
+                {this.props.rooms.map(this.renderRooms)}
             </div>
         )
     }

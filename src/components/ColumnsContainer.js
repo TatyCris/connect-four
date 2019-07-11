@@ -11,10 +11,9 @@ class ColumnsContainer extends Component {
     onClick = (column) => {
         console.log('column test:', column)
         request
-       
-            .put(`${this.url}/rooms/${column}/columns`)
+            .put(`${this.url}/rooms/1/columns`)
             .send({player: 'i', index: column})
-            .end(err => err)
+            .catch(err => err)
         
     }
 
@@ -28,6 +27,7 @@ class ColumnsContainer extends Component {
                 .map((column, index) => {
                     const rows = column
                         .rows
+                        .reverse()
                         .map(row => <div>
                             {row}
                         </div>)
