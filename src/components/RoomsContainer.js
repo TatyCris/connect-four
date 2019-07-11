@@ -21,7 +21,7 @@ class RoomsContainer extends Component {
     }
 
     onChange = (event) => {
-        const value = event.target.value
+        const value = event.target.name
 
         this.setState({
             value: value
