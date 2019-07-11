@@ -9,8 +9,8 @@ import './App.css';
 
 
 class App extends Component {
-  // baseUrl = 'https://secure-ravine-16222.herokuapp.com'
-  baseUrl = 'http://localhost:5000'
+  baseUrl = 'https://secure-ravine-16222.herokuapp.com'
+  // baseUrl = 'http://localhost:5000'
 
   url = `${this.baseUrl}/rooms`
 
@@ -24,13 +24,6 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-
-          {/* {
-            // If user logged in, -> render the other components
-            // Otherwise render the login screen
-            this.props.currentUser === null && 
-          } */}
-
           <Route exact path="/" component={LoginContainer} />
           <Route path="/rooms" component={RoomsContainer} />
           <Route path="/rooms/:id/columns" component={ColumnsContainer} />

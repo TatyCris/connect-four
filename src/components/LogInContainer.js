@@ -1,18 +1,19 @@
 import React, { Component } from 'react'
 import * as request from 'superagent'
 import { connect } from 'react-redux'
-import { Link, Redirect } from 'react-router-dom'
 import { getUser } from '../actions/users'
 
 
 class LoginContainer extends Component {
     state = {
         userName: '',
-        password: ''
+        password: '',
+        passwordConfirmation: '',
+        option: 'LOG_IN'
     }
 
-    // url = 'https://secure-ravine-16222.herokuapp.com'
-    url = 'http://localhost:5000'
+    url = 'https://secure-ravine-16222.herokuapp.com'
+    // url = 'http://localhost:5000'
 
     onChange = (event) => {
         const { value } = event.target
@@ -25,19 +26,77 @@ class LoginContainer extends Component {
         event.preventDefault()
         const { userName } = this.state
         const { password } = this.state
+        const { passwordConfirmation } = this.state
 
         this.setState({ userName: '', password: '' })
 
-        request
-            .post(`${this.url}/users`)
-            .send({ userName, password })
-            .then(res => {
-                console.log(res)
-                this.props.getUser(userName)
-                this.props.history.push(`/rooms`)
+        if (this.state.option === 'SIGN_IN') {
+            if (password !== passwordConfirmation) {
+                alert("Password confirmation must match Password")
+            } else {
+                request
+                    .post(`${this.url}/users`)
+                    .send({ userName, password })
+                    .then(res => {
+                        console.log(res)
+                        this.props.getUser(userName)
+                        this.props.history.push(`/rooms`)
 
-            })
-            .catch(error => console.log(error))
+                    })
+                    .catch(error => console.log(error))
+            }
+        } else {
+            request
+                .get(`${this.url}/login`, { userName }, { password })
+                // .send({ userName, password })
+                .then(res => {
+                    console.log(res)
+                    this.props.getUser(userName)
+                    this.props.history.push(`/rooms`)
+                })
+                .catch(error => console.log(error))
+        }
+
+    }
+
+    renderForm = () => {
+        console.log('hi');
+        return (
+            <form onSubmit={this.onSubmit}>
+                <label>Username</label>
+                <br />
+                <input onChange={this.onChange} value={this.state.userName} name="userName"></input>
+                <br />
+                <br />
+                <label>Password</label>
+                <br />
+                <input onChange={this.onChange} value={this.state.password} name="password"></input>
+                <br />
+                <br />
+                {this.state.option === 'SIGN_IN' &&
+                    <React.Fragment>
+                        <label>Password confirmation</label>
+                        <br />
+                        <input onChange={this.onChange} value={this.state.password_confirmation} name="passwordConfirmation"></input>
+                        <br />
+                        <br />
+                    </React.Fragment>
+                }
+                <button>Get in</button>
+            </form>
+        )
+    }
+
+    signIn = () => {
+        this.setState({
+            option: 'SIGN_IN'
+        })
+    }
+
+    logIn = () => {
+        this.setState({
+            option: 'LOG_IN'
+        })
     }
 
     render() {
@@ -45,18 +104,12 @@ class LoginContainer extends Component {
 
         return (
             <div className="Login">
-                <form onSubmit={this.onSubmit}>
-                    <label>Username</label>
-                    <br />
-                    <input onChange={this.onChange} value={this.state.userName} name="userName"></input>
-                    <br />
-                    <br />
-                    <label>Password</label>
-                    <br />
-                    <input onChange={this.onChange} value={this.state.password} name="password"></input>
-                    <br />
-                    <button>Get in</button>
-                </form>
+                <h1>Connect 4</h1>
+                {this.renderForm()}
+                <button onClick={this.logIn}>Log in</button>
+                <button onClick={this.signIn}>Sign in</button>
+                {/* <button onClick={() => this.renderForm('logIn')}>Log in</button>
+                <button onClick={() => this.renderForm('signIn')}>Sign in</button> */}
             </div>
         )
     }
