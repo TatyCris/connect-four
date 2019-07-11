@@ -54,7 +54,6 @@ class RoomsContainer extends Component {
                     <input onChange={this.onChange} value={this.state.value} name={this.state.value}></input>
                     <button>Add</button>
                 </form>
-                {rooms}
                 {this.props.rooms.map(this.renderRooms)}
             </div>
         )
