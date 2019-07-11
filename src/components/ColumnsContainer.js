@@ -14,31 +14,39 @@ class ColumnsContainer extends Component {
         request
             .put(`${this.url}/columns`)
             .then(res => {
-                console.log('res?', res)
-                return res.body.rows[0]
+                const star = '*'
+                console.log('res?', res.body.rows)
+                res.body.rows.push(star)
+                console.log('res222', res.body.rows)
+                return res
             })
     }
     
     render() {
-        console.log(this.props.row)
+        console.log('whats the props?',this.props)
         if (this.props.rooms.length) {
-            const room = this.props.rooms[0] //find
+            const room = this.props.rooms[1] //find
             const columns = room
                 .columns
                 .map((column, index) => {
                     const rows = column
                         .rows
-                        .map(row => <div>{row}</div>)
+                        .map(row => 
+                            <div 
+                            onClick={this.onClick}
+                            >
+                            {row}
+                            </div>)
                         
                     return <div key={index}>
                         {rows}
 
-                        {column.id}
+                        {column.index}
                     </div>
                 })
 
             return (
-                <div className='columns' onClick={this.onClick}>
+                <div className='columns' >
                         {columns}
                 </div>
             )
