@@ -13,7 +13,7 @@ class ColumnsContainer extends Component {
         request
             .put(`${this.url}/rooms/1/columns`)
             .send({player: 'i', index: column})
-            .end(err => err)
+            .catch(err => err)
         
     }
 
