@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import * as request from 'superagent'
 import { connect } from 'react-redux'
-import { getUser } from '../actions/users'
+// import { getUser } from '../actions/users'
 import './LogInContainer.css'
 
 
@@ -118,5 +118,5 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { getUser })(LoginContainer)
+export default connect(mapStateToProps)(LoginContainer)
 

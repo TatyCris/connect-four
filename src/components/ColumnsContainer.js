@@ -1,15 +1,20 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { onEvent } from '../actions/game'
-import './ColumnsContainer.css'
 import * as request from 'superagent'
+import { onEvent } from '../actions/game'
+// import { currentRoom } from '../actions/rooms'
+import './ColumnsContainer.css'
 
 class ColumnsContainer extends Component {
-
     // url = 'https://secure-ravine-16222.herokuapp.com'
     url = 'http://localhost:5000'
+
+    // componentDidMount() {
+    //     request
+    //         .get(`${this.url}/rooms/${this.props.currentRoom}`)
+    // }
+
     onClick = (column) => {
-        console.log('column test:', column)
         request
             .put(`${this.url}/rooms/1/columns`)
             .send({player: 'i', index: column})
@@ -18,8 +23,9 @@ class ColumnsContainer extends Component {
     }
 
     render() {
-        console.log('ColumnsProps', this.props.history);
-
+        console.log( 'room' ,this.props.currentRoom);
+        console.log( 'rooms' ,this.props.rooms);
+        
         if (this.props.rooms.length) {
             const room = this.props.rooms[0] //find
             const columns = room
@@ -52,7 +58,8 @@ class ColumnsContainer extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        rooms: state.rooms
+        rooms: state.rooms,
+        currentRoom: state.currentRoom
     }
 }
 
