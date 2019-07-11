@@ -12,8 +12,8 @@ class LoginContainer extends Component {
         option: 'LOG_IN'
     }
 
-    url = 'https://secure-ravine-16222.herokuapp.com'
-    // url = 'http://localhost:5000'
+    // url = 'https://secure-ravine-16222.herokuapp.com'
+    url = 'http://localhost:5000'
 
     onChange = (event) => {
         const { value } = event.target
@@ -47,8 +47,8 @@ class LoginContainer extends Component {
             }
         } else {
             request
-                .get(`${this.url}/login`, { userName }, { password })
-                // .send({ userName, password })
+                .post(`${this.url}/login`)
+                .send({ userName, password })
                 .then(res => {
                     console.log(res)
                     this.props.getUser(userName)
