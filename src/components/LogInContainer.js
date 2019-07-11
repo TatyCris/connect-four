@@ -38,7 +38,6 @@ class LoginContainer extends Component {
                     .post(`${this.url}/users`)
                     .send({ userName, password })
                     .then(res => {
-                        console.log(res)
                         this.props.getUser(userName)
                         this.props.history.push(`/rooms`)
 
@@ -50,17 +49,14 @@ class LoginContainer extends Component {
                 .post(`${this.url}/login`)
                 .send({ userName, password })
                 .then(res => {
-                    console.log(res)
                     this.props.getUser(userName)
                     this.props.history.push(`/rooms`)
                 })
                 .catch(error => console.log(error))
         }
-
     }
 
     renderForm = () => {
-        console.log('hi');
         return (
             <form onSubmit={this.onSubmit}>
                 <label>Username</label>
@@ -100,7 +96,7 @@ class LoginContainer extends Component {
     }
 
     render() {
-        console.log('props', this.props.user);
+        console.log('LogInProps', this.props.history);
 
         return (
             <div className="Login">
@@ -108,8 +104,6 @@ class LoginContainer extends Component {
                 {this.renderForm()}
                 <button onClick={this.logIn}>Log in</button>
                 <button onClick={this.signIn}>Sign in</button>
-                {/* <button onClick={() => this.renderForm('logIn')}>Log in</button>
-                <button onClick={() => this.renderForm('signIn')}>Sign in</button> */}
             </div>
         )
     }

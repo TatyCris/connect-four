@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Route } from 'react-router-dom'
+import { Route } from "react-router-dom"
 import { onEvent } from './actions/rooms'
 import LoginContainer from './components/LogInContainer'
 import RoomsContainer from './components/RoomsContainer'
@@ -25,18 +25,12 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <Route exact path="/" component={LoginContainer} />
-          <Route path="/rooms" component={RoomsContainer} />
+          <Route exact path="/rooms" component={RoomsContainer} />
           <Route path="/rooms/:id/columns" component={ColumnsContainer} />
         </header>
       </div>
     )
   }
 }
-
-// const mapStateToProps = (state) => {
-//   return {
-//     currentUser: state.users
-//   }
-// }
 
 export default connect(null, { onEvent })(App)

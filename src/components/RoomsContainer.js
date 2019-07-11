@@ -1,24 +1,24 @@
 import React, { Component } from 'react'
 import { onEvent } from '../actions/rooms'
 import { connect } from 'react-redux'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './rooms.css'
 
 class RoomsContainer extends Component {
-
+    renderRooms = (room) => {
+        return (
+            <div key={room.name} className="roomContainer">
+                <Link to={`/rooms/${room.id}/columns`}>{room.name} ({room.id})</Link>
+            </div>
+        )
+    }
 
     render() {
-        const rooms = this.props.rooms
-            .map((room, index) => <Link to={`/room/${index + 1}/columns`}> <div
-                key={index}
-                className="roomContainer"
-                style={{backgroundImage: `url("https://source.unsplash.com/collection/181581/480x160")`}}
-            >{room.name} ({room.id})</div> </Link>)
-
+        console.log('RoomsProps', this.props.history);
         return (
             <div>
                 Rooms
-                {rooms}
+                {this.props.rooms.map(this.renderRooms)}
             </div>
         )
     }
