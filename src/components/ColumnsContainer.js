@@ -12,7 +12,7 @@ class ColumnsContainer extends Component {
         console.log('column test:', column)
         request
        
-            .put(`${this.url}/rooms/1/columns`)
+            .put(`${this.url}/rooms/${column}/columns`)
             .send({player: 'i', index: column})
             .end(err => err)
         
@@ -28,11 +28,11 @@ class ColumnsContainer extends Component {
                 .map((column, index) => {
                     const rows = column
                         .rows
-                        .map(row => <div onClick={() => this.onClick(column.index)}>
+                        .map(row => <div>
                             {row}
                         </div>)
 
-                    return <div key={index}>
+                    return <div key={index} onClick={() => this.onClick(column.index)}>
                         {rows}
 
                         {column.id}

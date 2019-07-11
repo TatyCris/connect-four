@@ -15,7 +15,7 @@ class RoomsContainer extends Component {
         console.log('hoi!!', event)
         request
             .post('http://localhost:5000/rooms')
-            .send({ name: event.target.value })
+            .send({ name: 'game'})
             .end(err => console.log(err))
         this.setState({ value: '' })
     }
