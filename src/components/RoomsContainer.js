@@ -11,7 +11,7 @@ class RoomsContainer extends Component {
             .map((room, index) => <div
                 key={index}
                 className="roomContainer"
-                style={{backgroundImage: `url("https://source.unsplash.com/collection/181581/480x160")`}}
+                // style={{backgroundImage: `url("https://source.unsplash.com/collection/181581/480x160")`}}
             >{room.name} ({room.id})</div>)
 
         return (
