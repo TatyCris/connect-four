@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { onEvent } from '../actions/game'
-import './columns.css'
+import './ColumnsContainer.css'
 import * as request from 'superagent'
 
 class ColumnsContainer extends Component {

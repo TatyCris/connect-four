@@ -3,7 +3,7 @@ import { onEvent } from '../actions/rooms'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import * as request from 'superagent'
-import './rooms.css'
+import './RoomContainer.css'
                
 class RoomsContainer extends Component {
     state = {
@@ -38,15 +38,15 @@ class RoomsContainer extends Component {
 
     render() {
         console.log('this.props test:', this.props.rooms)
-        const rooms = this.props.rooms
-            .map((room, index) => <Link to={`/rooms/${index + 1}/columns`}> <div
+        this.props.rooms
+            .map((room, index) => <div
                 key={index}
                 className="roomContainer"
-                style={{ backgroundImage: `url("https://source.unsplash.com/collection/181581/480x160")` }}
-            >{room.name} ({room.id})</div> </Link>)
+               
+            >{room.name} ({room.id})</div>)
 
         return (
-            <div>
+            <div className="mainDiv">
                 Rooms
                 <br></br>
                 <form onSubmit={this.onSubmit}>
