@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import * as request from 'superagent'
 import { connect } from 'react-redux'
 import { getUser } from '../actions/users'
+import './LogInContainer.css'
 
 
 class LoginContainer extends Component {
@@ -99,12 +100,14 @@ class LoginContainer extends Component {
         console.log('LogInProps', this.props.history);
 
         return (
-            <div className="Login">
-                <h1>Connect 4</h1>
-                {this.renderForm()}
-                <button onClick={this.logIn}>Log in</button>
-                <button onClick={this.signIn}>Sign in</button>
-            </div>
+            <main  className="Login">
+                <div>
+                    <h1>Connect 4</h1>
+                    {this.renderForm()}
+                    <button onClick={this.logIn}>Log in</button>
+                    <button onClick={this.signIn}>Sign in</button>
+                </div>
+            </main>
         )
     }
 }

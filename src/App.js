@@ -6,6 +6,7 @@ import LoginContainer from './components/LogInContainer'
 import RoomsContainer from './components/RoomsContainer'
 import ColumnsContainer from './components/ColumnsContainer'
 import './App.css';
+import FooterContainer from './components/FooterContainer';
 
 
 class App extends Component {
@@ -23,12 +24,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <Route exact path="/" component={LoginContainer} />
-          <Route exact path="/rooms" component={RoomsContainer} />
-          <Route exact path="/rooms/:id/columns" component={ColumnsContainer} />
-
-        </header>
+        <header className="App-header" />
+        <Route exact path="/" component={LoginContainer} />
+        <Route exact path="/rooms" component={RoomsContainer} />
+        <Route exact path="/rooms/:id/columns" component={ColumnsContainer} />
+        <FooterContainer />
       </div>
     )
   }
