@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import * as request from 'superagent'
 import './RoomContainer.css'
-               
+
 class RoomsContainer extends Component {
     state = {
         value: ''
@@ -23,7 +23,7 @@ class RoomsContainer extends Component {
         console.log('hoi!!', event)
         request
             .post('http://localhost:5000/rooms')
-            .send({ name: 'game'})
+            .send({ name: 'game' })
             .end(err => console.log(err))
         this.setState({ value: '' })
     }
@@ -42,7 +42,7 @@ class RoomsContainer extends Component {
             .map((room, index) => <div
                 key={index}
                 className="roomContainer"
-               
+
             >{room.name} ({room.id})</div>)
 
         return (

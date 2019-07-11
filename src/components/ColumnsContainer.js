@@ -12,9 +12,9 @@ class ColumnsContainer extends Component {
         console.log('column test:', column)
         request
             .put(`${this.url}/rooms/1/columns`)
-            .send({player: 'i', index: column})
+            .send({ player: 'i', index: column })
             .catch(err => err)
-        
+
     }
 
     render() {

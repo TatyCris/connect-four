@@ -100,7 +100,7 @@ class LoginContainer extends Component {
         console.log('LogInProps', this.props.history);
 
         return (
-            <main  className="Login">
+            <main className="Login">
                 <div>
                     <h1>Connect 4</h1>
                     {this.renderForm()}
