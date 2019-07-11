@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import * as request from 'superagent'
 import { connect } from 'react-redux'
-// import { getUser } from '../actions/users'
+import { getUser } from '../actions/users'
 import './LogInContainer.css'
 
 
@@ -97,17 +97,13 @@ class LoginContainer extends Component {
     }
 
     render() {
-        console.log('LogInProps', this.props.history);
-
         return (
-            <main  className="Login">
-                <div>
-                    <h1>Connect 4</h1>
-                    {this.renderForm()}
-                    <button onClick={this.logIn}>Log in</button>
-                    <button onClick={this.signIn}>Sign in</button>
-                </div>
-            </main>
+            <div className="Login">
+                <h1>Connect 4</h1>
+                {this.renderForm()}
+                <button onClick={this.logIn}>Log in</button>
+                <button onClick={this.signIn}>Sign in</button>
+            </div>
         )
     }
 }
@@ -118,5 +114,5 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(LoginContainer)
+export default connect(mapStateToProps, { getUser })(LoginContainer)
 
