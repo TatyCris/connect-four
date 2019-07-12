@@ -1,30 +1,19 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import * as request from 'superagent'
-// import Column from './Column'
 import './ColumnsContainer.css'
-// import './connect4.css'
+import { currentMovement } from '../actions/movement'
 
 class ColumnsContainer extends Component {
-    state = {
-        player: true
-    }
-
-    baseUrl = 'https://connect4-the-best-game.herokuapp.com'
-    // baseUrl = 'http://localhost:5000'
-
-    toggle = () => {
-        this.setState({
-            player: !this.state.player
-        })
-    }
+    // baseUrl = 'https://connect4-the-best-game.herokuapp.com'
+    baseUrl = 'http://localhost:5000'
 
     onClick = (room, column) => {
         const url = `${this.baseUrl}/rooms/${room.id}/columns`
-        this.toggle()
+
         request
             .put(url)
-            .send({ player: (this.state.player ? 'x' : 'o'), index: column.index })
+            .send({ index: column.index })
             .catch(err => err)
     }
 
@@ -76,8 +65,9 @@ class ColumnsContainer extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        rooms: state.rooms
+        rooms: state.rooms,
+        value: state.movement
     }
 }
 
-export default connect(mapStateToProps)(ColumnsContainer)
+export default connect(mapStateToProps, { currentMovement })(ColumnsContainer)
