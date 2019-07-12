@@ -30,8 +30,8 @@ class RoomsContainer extends Component {
         event.preventDefault()
         request
             .post(`${this.url}/rooms`)
-            .send({ name: 'juego' })
-            .end(err => console.log(err))
+            .send({ name: this.state.value })
+            .catch(err => console.log(err))
         this.setState({ value: '' })
     }
 
