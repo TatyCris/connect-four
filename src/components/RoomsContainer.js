@@ -11,6 +11,9 @@ class RoomsContainer extends Component {
         value: ''
     }
 
+    // url = 'https://secure-ravine-16222.herokuapp.com'
+    url = 'http://localhost:5000'
+
     setRoom = (roomId) => {
         this.props.currentRoom(roomId)
     }
@@ -26,8 +29,8 @@ class RoomsContainer extends Component {
     onSubmit = (event) => {
         event.preventDefault()
         request
-            .post('http://localhost:5000/rooms')
-            .send({ name: 'game' })
+            .post(`${this.url}/rooms`)
+            .send({ name: this.state.value })
             .end(err => console.log(err))
         this.setState({ value: '' })
     }

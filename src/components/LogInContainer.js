@@ -67,14 +67,24 @@ class LoginContainer extends Component {
                 <br />
                 <label>Password</label>
                 <br />
-                <input onChange={this.onChange} value={this.state.password} name="password"></input>
+                <input
+                    onChange={this.onChange}
+                    value={this.state.password}
+                    name="password"
+                    type="password">
+                </input>
                 <br />
                 <br />
                 {this.state.option === 'SIGN_IN' &&
                     <React.Fragment>
                         <label>Password confirmation</label>
                         <br />
-                        <input onChange={this.onChange} value={this.state.password_confirmation} name="passwordConfirmation"></input>
+                        <input
+                            onChange={this.onChange}
+                            value={this.state.password_confirmation}
+                            name="passwordConfirmation"
+                            type="password">
+                        </input>
                         <br />
                         <br />
                     </React.Fragment>
@@ -115,4 +125,3 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, { getUser })(LoginContainer)
-
