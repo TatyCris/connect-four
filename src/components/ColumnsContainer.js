@@ -2,38 +2,31 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import * as request from 'superagent'
 import './ColumnsContainer.css'
-import { onEvent } from '../actions/columns'
 
 class ColumnsContainer extends Component {
-    // baseUrl = 'https://secure-ravine-16222.herokuapp.com'
-    baseUrl = 'http://localhost:5000'
-
-    url = `${this.baseUrl}/rooms/${this.props.currentRoom}/columns`
-
-    source = new EventSource(`${this.url}/stream`)
-
-    componentDidMount() {
-        this.source.onmessage = this.props.onEvent
+    state = {
+        player: true
     }
 
-    onClick = (column) => {
+    toggle = () => {
+        this.setState({
+            player: !this.state.player
+        })
+    }
+
+    onClick = (room, column) => {
+        const url = `http://localhost:5000/rooms/${room.id}/columns`
+        this.toggle()
         request
-            .put(`${this.url}`)
-            // if (condition) {
-            //implement condition to get the correct player
-            // }
-            .send({ player: 'i', index: column })
+            .put(url)
+            .send({ player: (this.state.player ? 'x' : 'o'), index: column.index })
             .catch(err => err)
     }
 
     render() {
-        console.log('room', this.props.currentRoom);
-        console.log('rooms', this.props.rooms.find(room => room.id === this.props.currentRoom))
-        console.log('room[0]', this.props.rooms[0])
-
-        if (this.props.rooms.length) {
-            const room = (this.props.rooms.find(room => room.id === this.props.currentRoom))
-            const columns = room
+        const room = (this.props.rooms.find(room => room.id === parseInt(this.props.match.params.id)))
+        const columns = room
+            ? room
                 .columns
                 .map((column, index) => {
                     const rows = column
@@ -43,30 +36,26 @@ class ColumnsContainer extends Component {
                             {row}
                         </div>)
 
-                    return <div key={index} onClick={() => this.onClick(column.index)}>
+                    return <div key={index} onClick={() => this.onClick(room, column)}>
                         {rows}
 
-                        {column.id}
+                        {column.index}
                     </div>
                 })
+            : 'Loading...'
 
-            return (
-                <div className='columns' >
-                    {columns}
-                </div>
-            )
-        } else {
-            return 'Loading...'
-        }
+        return (
+            <div className='columns' >
+                {columns}
+            </div>
+        )
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-        rooms: state.rooms,
-        currentRoom: state.currentRoom,
-        columns: state.columns
+        rooms: state.rooms
     }
 }
 
-export default connect(mapStateToProps, {onEvent})(ColumnsContainer)
+export default connect(mapStateToProps)(ColumnsContainer)

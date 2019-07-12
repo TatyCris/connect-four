@@ -1,11 +1,9 @@
 .Footer{
     list-style-type: none;
     padding: 0;
-    background-color: rgb(59, 55, 55);
     width:100%;
   }
   
   .Footer p {
-    color: white;
     margin: 7px;
   }
