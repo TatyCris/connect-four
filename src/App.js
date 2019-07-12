@@ -10,8 +10,8 @@ import FooterContainer from './components/FooterContainer';
 
 
 class App extends Component {
-  // baseUrl = 'https://secure-ravine-16222.herokuapp.com'
-  baseUrl = 'http://localhost:5000'
+  baseUrl = 'https://connect4-the-best-game.herokuapp.com'
+  // baseUrl = 'http://localhost:5000'
 
   url = `${this.baseUrl}/rooms`
 

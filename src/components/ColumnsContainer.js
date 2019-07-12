@@ -8,8 +8,8 @@ class ColumnsContainer extends Component {
         player: true
     }
 
-    // baseUrl = 'https://secure-ravine-16222.herokuapp.com'
-    baseUrl = 'http://localhost:5000'
+    baseUrl = 'https://connect4-the-best-game.herokuapp.com'
+    // baseUrl = 'http://localhost:5000'
 
     toggle = () => {
         this.setState({

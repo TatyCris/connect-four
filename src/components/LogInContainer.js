@@ -13,7 +13,7 @@ class LoginContainer extends Component {
         option: 'LOG_IN'
     }
 
-    // url = 'https://secure-ravine-16222.herokuapp.com'
+    // url = 'https://connect4-the-best-game.herokuapp.com'
     url = 'http://localhost:5000'
 
     onChange = (event) => {
