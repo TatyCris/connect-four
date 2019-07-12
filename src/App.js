@@ -10,8 +10,8 @@ import FooterContainer from './components/FooterContainer';
 
 
 class App extends Component {
-  baseUrl = 'https://connect4-the-best-game.herokuapp.com'
-  // baseUrl = 'http://localhost:5000'
+  // baseUrl = 'https://connect4-the-best-game.herokuapp.com'
+  baseUrl = 'http://localhost:5000'
 
   url = `${this.baseUrl}/rooms`
 
@@ -25,6 +25,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header" />
+        <h1>Connect 4</h1>
         <Route exact path="/" component={LoginContainer} />
         <Route exact path="/rooms" component={RoomsContainer} />
         <Route exact path="/rooms/:id/columns" component={ColumnsContainer} />

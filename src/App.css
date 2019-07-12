@@ -1,9 +1,14 @@
 .App {
   text-align: center;
+  background-image: url('https://i.ytimg.com/vi/DHXcVm3Eg0U/maxresdefault.jpg');
+  min-height: 100vh;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  color: white;
 }
 
 .App-header {
-  min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;

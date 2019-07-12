@@ -1,9 +1,20 @@
-.Footer{
-    list-style-type: none;
-    padding: 0;
-    width:100%;
-  }
-  
-  .Footer p {
-    margin: 7px;
-  }
+/* .Footer {
+  clear: both;
+  position: relative;
+  height: 200px;
+  margin-top: -200px;
+} */
+
+/* .Footer p {
+  margin: 7px;
+} */
+
+.Footer {
+  position: absolute;
+  bottom: 0;
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+}
