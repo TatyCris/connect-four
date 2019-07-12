@@ -18,6 +18,9 @@ class ColumnsContainer extends Component {
     }
 
     render() {
+        const ricky = <img src={require('../images/ricky.png')} />
+        const morty = <img src={require('../images/morty.jpeg')} />
+
         const room = (this.props.rooms.find(room => room.id === parseInt(this.props.match.params.id)))
         const columns = room
             ? room
@@ -28,8 +31,8 @@ class ColumnsContainer extends Component {
                         .reverse()
                         .map(row => {
                             const image = row === 'x'
-                                ? 'Ex'
-                                : 'Ohe'
+                                ? ricky
+                                : morty
                             return <div>
                                 <table>{image}</table>
                             </div>
@@ -44,8 +47,6 @@ class ColumnsContainer extends Component {
                     return <div key={index} onClick={() => this.onClick(room, column)}>
                         {empty}
                         {rows} 
-
-                        {column.index}
                     </div>
                 })
             : 'Loading...'

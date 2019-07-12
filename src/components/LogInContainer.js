@@ -109,10 +109,9 @@ class LoginContainer extends Component {
     render() {
         return (
             <div className="Login">
-                <h1>Connect 4</h1>
                 {this.renderForm()}
                 <button onClick={this.logIn}>Log in</button>
-                <button onClick={this.signIn}>Sign in</button>
+                <button onClick={this.signIn}>Sign un</button>
             </div>
         )
     }

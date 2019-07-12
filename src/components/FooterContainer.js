@@ -9,8 +9,7 @@ export class FooterContainer extends Component {
         return (
             <div className="Footer">
                 <p> Yuri van Schaaik, Tatiany Cristine</p>
-                <p>Amsterdam</p>
-                <p> © {this.year}</p>
+                <p>Amsterdam © {this.year}</p>
             </div>
         )
     }

@@ -17,7 +17,12 @@ button {
     color: #5A4500;
     outline: none
 }
+
 button:active{
     transform: translateY(2px);
     background: rgba(243, 156, 18,1.0);
+}
+
+.Login {
+    font-size: 25px;
 }
