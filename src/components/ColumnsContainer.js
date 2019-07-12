@@ -10,8 +10,8 @@ class ColumnsContainer extends Component {
         player: true
     }
 
-    // baseUrl = 'https://connect4-the-best-game.herokuapp.com'
-    baseUrl = 'http://localhost:5000'
+    baseUrl = 'https://connect4-the-best-game.herokuapp.com'
+    // baseUrl = 'http://localhost:5000'
 
     toggle = () => {
         this.setState({
