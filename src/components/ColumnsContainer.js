@@ -8,6 +8,9 @@ class ColumnsContainer extends Component {
         player: true
     }
 
+    // baseUrl = 'https://secure-ravine-16222.herokuapp.com'
+    baseUrl = 'http://localhost:5000'
+
     toggle = () => {
         this.setState({
             player: !this.state.player
@@ -15,7 +18,7 @@ class ColumnsContainer extends Component {
     }
 
     onClick = (room, column) => {
-        const url = `http://localhost:5000/rooms/${room.id}/columns`
+        const url = `${this.baseUrl}/rooms/${room.id}/columns`
         this.toggle()
         request
             .put(url)
