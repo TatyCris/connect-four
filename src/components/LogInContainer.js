@@ -13,8 +13,8 @@ class LoginContainer extends Component {
         option: 'LOG_IN'
     }
 
-    url = 'https://server-connect-four.herokuapp.com/'
-    // url = 'http://localhost:5000'
+    // url = 'https://server-connect-four.herokuapp.com/'
+    url = 'http://localhost:5000'
 
     onChange = (event) => {
         const { value } = event.target

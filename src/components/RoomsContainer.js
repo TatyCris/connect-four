@@ -11,8 +11,8 @@ class RoomsContainer extends Component {
         value: ''
     }
 
-    url = 'https://connect4-the-best-game.herokuapp.com'
-    // url = 'http://localhost:5000'
+    // url = 'https://connect4-the-best-game.herokuapp.com'
+    url = 'http://localhost:5000'
 
     setRoom = (roomId) => {
         this.props.currentRoom(roomId)
