@@ -11,8 +11,8 @@ class RoomsContainer extends Component {
         value: ''
     }
 
-    // url = 'https://connect4-the-best-game.herokuapp.com'
-    url = 'http://localhost:5000'
+    url = 'https://connect4-the-best-game.herokuapp.com'
+    // url = 'http://localhost:5000'
 
     setRoom = (roomId) => {
         this.props.currentRoom(roomId)
@@ -21,7 +21,7 @@ class RoomsContainer extends Component {
     renderRooms = (room) => {
         return (
             <div key={room.name} className="roomContainer" onClick={() => this.setRoom(room.id)}>
-                <Link to={`/rooms/${room.id}/columns`}>{room.name} ({room.id})</Link>
+                <Link to={`/rooms/${room.id}/columns`}>{room.name}</Link>
             </div>
         )
     }
@@ -31,7 +31,7 @@ class RoomsContainer extends Component {
         request
             .post(`${this.url}/rooms`)
             .send({ name: this.state.value })
-            .end(err => console.log(err))
+            .catch(err => console.log(err))
         this.setState({ value: '' })
     }
 
@@ -46,13 +46,13 @@ class RoomsContainer extends Component {
     render() {
         return (
             <div className="mainDiv">
-                Rooms
                 <br></br>
                 <form onSubmit={this.onSubmit}>
                     <label>Create Game: </label>
                     <input onChange={this.onChange} value={this.state.value} name={this.state.value}></input>
                     <button>Add</button>
                 </form>
+                Rooms
                 {this.props.rooms.map(this.renderRooms)}
             </div>
         )

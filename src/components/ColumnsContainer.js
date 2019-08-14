@@ -1,34 +1,26 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import * as request from 'superagent'
-// import Column from './Column'
 import './ColumnsContainer.css'
-// import './connect4.css'
+import { currentMovement } from '../actions/movement'
 
 class ColumnsContainer extends Component {
-    state = {
-        player: true
-    }
-
-    baseUrl = 'https://connect4-the-best-game.herokuapp.com'
+    baseUrl = 'https://server-connect-four.herokuapp.com'
     // baseUrl = 'http://localhost:5000'
-
-    toggle = () => {
-        this.setState({
-            player: !this.state.player
-        })
-    }
 
     onClick = (room, column) => {
         const url = `${this.baseUrl}/rooms/${room.id}/columns`
-        this.toggle()
+
         request
             .put(url)
-            .send({ player: (this.state.player ? 'x' : 'o'), index: column.index })
+            .send({ index: column.index })
             .catch(err => err)
     }
 
     render() {
+        const ricky = <img src={require('../images/ricky.png')} alt="ricky" />
+        const morty = <img src={require('../images/morty.jpeg')} alt="morty"/>
+
         const room = (this.props.rooms.find(room => room.id === parseInt(this.props.match.params.id)))
         const columns = room
             ? room
@@ -39,8 +31,8 @@ class ColumnsContainer extends Component {
                         .reverse()
                         .map(row => {
                             const image = row === 'x'
-                                ? 'Ex'
-                                : 'Ohe'
+                                ? ricky
+                                : morty
                             return <div>
                                 <table>{image}</table>
                             </div>
@@ -55,8 +47,6 @@ class ColumnsContainer extends Component {
                     return <div key={index} onClick={() => this.onClick(room, column)}>
                         {empty}
                         {rows} 
-
-                        {column.index}
                     </div>
                 })
             : 'Loading...'
@@ -64,11 +54,6 @@ class ColumnsContainer extends Component {
         return (
             <div className='columns' >
                 {columns}
-                {/* <Column /> */}
-                {/* <div id="connect-four">
-                    <ul className="board" cols="7" rows="6">
-                    </ul>
-                </div> */}
             </div>
         )
     }
@@ -76,8 +61,9 @@ class ColumnsContainer extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        rooms: state.rooms
+        rooms: state.rooms,
+        value: state.movement
     }
 }
 
-export default connect(mapStateToProps)(ColumnsContainer)
+export default connect(mapStateToProps, { currentMovement })(ColumnsContainer)
