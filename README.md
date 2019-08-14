@@ -1,4 +1,4 @@
-# Swap-Tickets-Client
+# Connect-Four-Client
 This game project is the client side of a full stack web-application.
 
 ## Table of contents
