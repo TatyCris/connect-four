@@ -5,7 +5,7 @@ import './ColumnsContainer.css'
 import { currentMovement } from '../actions/movement'
 
 class ColumnsContainer extends Component {
-    baseUrl = 'https://connect4-the-best-game.herokuapp.com'
+    baseUrl = 'https://server-connect-four.herokuapp.com'
     // baseUrl = 'http://localhost:5000'
 
     onClick = (room, column) => {
@@ -18,8 +18,8 @@ class ColumnsContainer extends Component {
     }
 
     render() {
-        const ricky = <img src={require('../images/ricky.png')} />
-        const morty = <img src={require('../images/morty.jpeg')} />
+        const ricky = <img src={require('../images/ricky.png')} alt="ricky" />
+        const morty = <img src={require('../images/morty.jpeg')} alt="morty"/>
 
         const room = (this.props.rooms.find(room => room.id === parseInt(this.props.match.params.id)))
         const columns = room
@@ -54,11 +54,6 @@ class ColumnsContainer extends Component {
         return (
             <div className='columns' >
                 {columns}
-                {/* <Column /> */}
-                {/* <div id="connect-four">
-                    <ul className="board" cols="7" rows="6">
-                    </ul>
-                </div> */}
             </div>
         )
     }
