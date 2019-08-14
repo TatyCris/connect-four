@@ -1,68 +1,54 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Swap-Tickets-Client
+This game project is the client side of a full stack web-application.
 
-## Available Scripts
+## Table of contents
 
-In the project directory, you can run:
+- [Intro](#Intro)
+- [Technologies used](#Technologies-used)
+- [Goals for this project](#Goals-for-this-project)
+- [Setup](#Setup)
+- [Create React App](#Create-React-App)
 
-### `npm start`
+## Intro
+This is a React app, which was creadted for the game demo during the week 7 at Codaisseur Academy.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The Backend for the following repo may be found [here](https://github.com/TatyCris/connect-four-server)
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+**[Check out the deployed app here!](https://client-connect-four.herokuapp.com)**
 
-### `npm test`
+## Technologies used
+- React
+- Redux
+- Redux-Thunk
+- CSS
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Goals for this project
+- [x] Login and signup page for customers.
+- [ ] You need to login to be able to create rooms and play the game.
+- [x] When you click on a cell, you will see your icon in the last available row in that column.
+- [x] A winner must get four equal icons horizontally, or vertically or diagonally.
+- [ ] If there is a winner, the page should give an option to reset or exit the game.
 
-### `npm run build`
+## Setup
+In order to run this App please ensure you have the server running as well. 
+Instructions on how to do that may be found [here](https://github.com/TatyCris/connect-four-server)
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- git clone
+```bash
+$ git clone https://github.com/TatyCris/connect-four-client.git
+```
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+- npm install
+```bash
+$ npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- npm start
+```bash
+$ npm start
+```
 
-### `npm run eject`
+## Create React App
+This project was scaffolded using the create-react-app cli. 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+**[The standard create-react-app docs can be found in here](https://github.com/facebook/create-react-app)**
