@@ -5,8 +5,8 @@ import './ColumnsContainer.css'
 import { currentMovement } from '../actions/movement'
 
 class ColumnsContainer extends Component {
-    // baseUrl = 'https://server-connect-four.herokuapp.com'
-    baseUrl = 'http://localhost:5000'
+    baseUrl = 'https://server-connect-four.herokuapp.com'
+    // baseUrl = 'http://localhost:5000'
 
     onClick = (room, column) => {
         const url = `${this.baseUrl}/rooms/${room.id}/columns`
