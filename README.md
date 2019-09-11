@@ -1,6 +1,9 @@
 # Connect-Four-Client
 This game project is the client side of a full stack web-application.
 
+This is our second big group project in the Codaisseur Bootcamp.
+We had to build a full stack web-application using React/Redux (where Redux was used to fetch the data from our backend.)
+
 ## Table of contents
 
 - [Intro](#Intro)
